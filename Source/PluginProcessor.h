@@ -10,8 +10,8 @@
  TODO:
  click anywhere on ther window, and play a note
  if you click and drag, it'll change the pitch of the note
- Should we play a sound?
-*/
+
+ */
 
 
 #pragma once
@@ -60,9 +60,10 @@ public:
     //==============================================================================
     void getStateInformation (juce::MemoryBlock& destData) override;
     void setStateInformation (const void* data, int sizeInBytes) override;
+    bool shouldPlaySound = false;
 
 private:
-    bool shouldPlaySound = true;
+    
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (PFMProject0AudioProcessor)
 };

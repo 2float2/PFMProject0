@@ -20,6 +20,7 @@ PFMProject0AudioProcessorEditor::PFMProject0AudioProcessorEditor (PFMProject0Aud
 
 PFMProject0AudioProcessorEditor::~PFMProject0AudioProcessorEditor()
 {
+    audioProcessor.shouldPlaySound = false;
 }
 
 //==============================================================================
@@ -29,7 +30,7 @@ void PFMProject0AudioProcessorEditor::paint (juce::Graphics& g)
     g.fillAll (getLookAndFeel().findColour (juce::ResizableWindow::backgroundColourId));
 
     g.setColour (juce::Colours::white);
-    g.setFont (juce::FontOptions (15.0f));
+    g.setFont (juce::Font(15.0f));
     g.drawFittedText ("Hello World!", getLocalBounds(), juce::Justification::centred, 1);
 }
 
@@ -37,4 +38,17 @@ void PFMProject0AudioProcessorEditor::resized()
 {
     // This is generally where you'll want to lay out the positions of any
     // subcomponents in your editor..
+}
+
+void PFMProject0AudioProcessorEditor::mouseUp(const juce::MouseEvent& e)
+{
+    DBG( "Toggle sound on/off" );
+	audioProcessor.shouldPlaySound = !audioProcessor.shouldPlaySound; // Toggle sound on/off
+
+}
+
+void PFMProject0AudioProcessorEditor::mouseDown(const juce::MouseEvent& e)
+{
+    //DBG( "mouseDown" );
+    //audioProcessor.shouldPlaySound = true;
 }
